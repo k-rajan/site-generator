@@ -2,26 +2,23 @@
 # Site settings
 # These are used to personalize your new site. If you look in the HTML files,
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
-# You can create any custom variable you would like, and they will be accessible
-# in the templates via {{ site.myvariable }}.
-title: Rajan World
+title: Rajan.World
 tagline: "rajan rambling on world"
 email: kkumar.rajan@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
-  Rajan's views, thoughts, opinions about World.
-# I mostly writes about software development & technology, sometimes about socity, and rarely about my-self.  
+  Rajan's views, thoughts, opinions about World. 
+  I mostly writes about software development & technology, sometimes about world and rarely about my-self.  
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
+permalink: /:categories/:title
 twitter_username: k_rajan
 github_username:  k-rajan
 
 # Build settings
 markdown: kramdown
-#theme: minima
 
 # Custom vars
 version:          1.0.1
-
 github:
   repo:           https://github.com/k-rajan
 
@@ -34,7 +31,7 @@ plugins:
 # Pagination Settings
 pagination:
   enabled: true
-  per_page: 1
+  per_page: 5
   permalink: '/page/:num/'
   limit: 0
   sort_field: 'date'
@@ -45,7 +42,10 @@ assets:
   digest: false
   sources:
     - "_assets/css"
-
+  assets:
+    - "*.png"
+    - "*.ico"
+    - "*.css"
 ############################################################
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list

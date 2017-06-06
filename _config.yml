@@ -29,6 +29,7 @@ github:
 plugins:
   - jekyll-paginate-v2
   - jekyll-feed
+  - jekyll-assets
 
 # Pagination Settings
 pagination:
@@ -38,6 +39,12 @@ pagination:
   limit: 0
   sort_field: 'date'
   sort_reverse: true
+
+assets:
+  prefix: "/assets"
+  digest: false
+  sources:
+    - "_assets/css"
 
 ############################################################
 # Exclude from processing.

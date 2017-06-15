@@ -78,13 +78,13 @@ Syntax highlighting via Pygments
 ## Images
 
 <figure>
-  <img src="http://placehold.it/900x400.gif" alt="">
+  <img src="https://placehold.it/900x400.gif" alt="">
   <figcaption><strong>Example:</strong> One image.</figcaption>
 </figure>
 
 <figure class="half">
-  <img src="http://placehold.it/900x400.gif" alt="">
-  <img src="http://placehold.it/900x400.gif" alt="">
+  <img src="https://placehold.it/900x400.gif" alt="">
+  <img src="https://placehold.it/900x400.gif" alt="">
   <figcaption><strong>Example:</strong> Two images.</figcaption>
 </figure>
 

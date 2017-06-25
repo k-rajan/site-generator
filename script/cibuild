@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# skip if build is triggered by pull request
+if [ $TRAVIS_PULL_REQUEST == "true" ]; then
+  echo "this is PR, exiting"
+  exit 0
+fi
+
+# enable error reporting to the console
+set -e
+
+# cleanup "_site"
+rm -rf _site
+mkdir _site
+
+# clone remote repo to "_site"
+#git clone https://${GH_TOKEN}@github.com/ayastreb/11route.git --branch gh-pages _site
+
+echo "Building jekyll..."
+# build with Jekyll into "_site"
+bundle exec jekyll build
+
+echo "Done Building jekyll."

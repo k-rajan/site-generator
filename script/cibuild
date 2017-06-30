@@ -14,10 +14,20 @@ rm -rf _site
 mkdir _site
 
 # clone remote repo to "_site"
-#git clone https://${GH_TOKEN}@github.com/ayastreb/11route.git --branch gh-pages _site
+echo "Cloning k-rajan.github.io to _site"
+git clone https://${GH_TOKEN}@github.com/k-rajan/k-rajan.github.io.git _site
 
-echo "Building jekyll..."
+echo "Building jekyll into _site..."
 # build with Jekyll into "_site"
 bundle exec jekyll build
 
 echo "Done Building jekyll."
+
+# push
+cd _site
+git config user.email "kkumar.rajan@gmail.com"
+git config user.name "Rajan"
+git add --all
+git commit -a -m "Travis CI | site-generator | #$TRAVIS_BUILD_NUMBER"
+git show
+#git push --force origin gh-pages

@@ -2,7 +2,7 @@
 layout: post
 title:  "Welcome to Rajan World!"
 date:   2017-04-01 15:06:35 +0530
-categories: blogs
+categories: codes
 ---
 Welcome to Rajan's personal site. This is the place where I will be writting all my views/thoughts/opinions about World speciacially software develepment.
 

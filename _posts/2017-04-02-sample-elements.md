@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Style sample Post"
-categories: blogs
+categories: codes
 excerpt: "Below is just about everything you'll need to style in the theme."
 date: "2017-04-02 14:06:35 +0530" 
 tags: [sample]

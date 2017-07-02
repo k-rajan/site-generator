@@ -44,4 +44,4 @@ git config user.name "Rajan"
 git add --all
 git commit -a -m "Travis CI | site-generator | #$TRAVIS_BUILD_NUMBER"
 git show --name-only
-#git push --force origin master
+git push --force origin master

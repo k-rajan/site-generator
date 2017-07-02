@@ -52,6 +52,7 @@ assets:
 # to override the default setting. exclude: ["CNAME", "Rakefile", "MIT-LICENSE", "README.md", "TODO.taskpaper"]
 exclude:
   - LICENSE
+  - CNAME
   - README.md
   - script/
   - Gemfile

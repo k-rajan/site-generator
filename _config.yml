@@ -43,11 +43,11 @@ assets:
   prefix: "/assets"
   digest: false
   sources:
-    - "_assets/css"
+    - "_assets/images"
   assets:
-    - "*.png"
-    - "*.ico"
-    - "*.css"
+     - "*.png"
+     - "*.jpg"
+     - "*.ico"
 ############################################################
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list

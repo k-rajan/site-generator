@@ -5,3 +5,9 @@ date:   2017-04-03 16:06:38 +0530
 categories: blogs
 ---
 Steps of creating jekyll based website for biginner.
+
+##Setup 
+- github.io page
+- custom domain
+- https with custom domain
+- travis CI for deployment

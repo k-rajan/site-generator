@@ -6,7 +6,7 @@ categories: blogs
 ---
 Steps of creating jekyll based website for biginner.
 
-##Setup 
+##Setup for automatic deploy 
 - github.io page
 - custom domain
 - https with custom domain

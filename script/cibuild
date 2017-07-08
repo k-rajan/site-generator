@@ -30,12 +30,15 @@ cp _site/CNAME _tmp_backup/
 echo "Building jekyll into _site..."
 # build with Jekyll into "_site"
 bundle exec jekyll build
-
 echo "Done Building jekyll."
 
 # bring back
 echo "Copying retained files"
 cp _tmp_backup/* _site/
+
+# test site generated
+echo "Html proofer"
+bundle exec htmlproofer  ./_site  --allow_hash_href --assume_extension --disable-external
 
 # push
 cd _site

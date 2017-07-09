@@ -38,7 +38,7 @@ echo '"Generating static site"' && echo -en 'travis_fold:start:script.build.site
 echo '"Generating start time"' && echo -en 'travis_time:start:1234\\r'
 
 echo ""
-startTime=`date +%s%3N`
+startTime=`date +%s%N`
 echo "Start:${startTime}"
 
 bundle exec jekyll build
@@ -46,10 +46,8 @@ bundle exec jekyll build
 echo "Copying retained files"
 cp _tmp_backup/* _site/
 
-echo "adding sleep for testin time calculation"
-sleep 2s
 
-endTime=`date +%s%3N`
+endTime=`date +%s%N`
 echo "End:${endTime}"
 durationTime=`expr $endTime - $startTime`
 

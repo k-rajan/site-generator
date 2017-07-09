@@ -9,38 +9,56 @@ fi
 # enable error reporting to the console
 set -e
 
-# cleanup "_site"
+###############################################################################
+# clone remote repo to "_site"
+echo '"Initialize publishing repo"' && echo -en 'travis_fold:start:script.build.site-init\\r'
+### cleanup _site
 rm -rf _site
 mkdir _site
 
-# cleanup "_keep"
+### cleanup _tmp
 rm -rf _tmp_backup
 mkdir _tmp_backup
 
-# clone remote repo to "_site"
-echo "Cloning k-rajan.github.io to _site"
+### clone github repo to publish
 git clone https://${GH_TOKEN}@github.com/k-rajan/k-rajan.github.io.git _site
-
-# retains important files
+### retains important files
 echo "Retaining CNAME, README,md, LICENSE from repo"
 cp _site/README.md _tmp_backup/
 cp _site/LICENSE _tmp_backup/
 cp _site/CNAME _tmp_backup/
+echo -en 'travis_fold:end:script.build.site.init\\r'
+# end clone
+###############################################################################
 
-echo "Building jekyll into _site..."
-# build with Jekyll into "_site"
+
+###############################################################################
+# Generate static site
+echo '"Generating static site"' && echo -en 'travis_fold:start:script.build.site-gen\\r'
 bundle exec jekyll build
-echo "Done Building jekyll."
-
-# bring back
+### bring back
 echo "Copying retained files"
 cp _tmp_backup/* _site/
+echo -en 'travis_fold:end:script.build.site-gen\\r'
+# end Generating static site
+###############################################################################
 
-# test site generated
+
+###############################################################################
+# tests
+echo '"Testing site"' && echo -en 'travis_fold:start:script.build.site-test\\r'
+### html proofing
 echo "Html proofer"
 bundle exec htmlproofer  ./_site  --allow_hash_href --assume_extension --disable-external
+echo -en 'travis_fold:end:script.build.site-test\\r'
+# end test
+###############################################################################
 
-# push
+
+###############################################################################
+# publish
+echo '"Deploying site to github pages"' && echo -en 'travis_fold:start:script.build.site-deploy\\r'
+### push
 cd _site
 git config user.email ${GIT_EMAIL}
 git config user.name ${GIT_NAME}
@@ -48,3 +66,7 @@ git add --all
 git commit -a -m "Travis CI | site-generator | #$TRAVIS_BUILD_NUMBER"
 git show --name-only
 git push --force origin master
+# end push
+echo -en 'travis_fold:end:script.build.site-deploy\\r'
+# end publish
+###############################################################################

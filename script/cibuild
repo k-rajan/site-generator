@@ -12,6 +12,7 @@ set -e
 ###############################################################################
 # clone remote repo to "_site"
 echo '"Initialize publishing repo"' && echo -en 'travis_fold:start:script.build.site-init\\r'
+echo ''
 echo '"site-init"'
 ### cleanup _site
 rm -rf _site
@@ -38,6 +39,7 @@ echo -en 'travis_fold:end:script.build.site-init\\r'
 echo '"Generating static site"' && echo -en 'travis_fold:start:script.build.site-gen\\r'
 echo '"Generating start time"' && echo -en 'travis_time:start:1234\\r'
 
+echo ''
 echo '"site-gen"'
 startTime=`date +%s%N`
 
@@ -60,6 +62,7 @@ echo -en 'travis_fold:end:script.build.site-gen\\r'
 ###############################################################################
 # tests
 echo '"Testing site"' && echo -en 'travis_fold:start:script.build.site-test\\r'
+echo ''
 echo '"site-test"'
 ### html proofing
 echo "Html proofer"
@@ -72,6 +75,7 @@ echo -en 'travis_fold:end:script.build.site-test\\r'
 ###############################################################################
 # publish
 echo '"Deploying site to github pages"' && echo -en 'travis_fold:start:script.build.site-deploy\\r'
+echo ''
 echo '"site-deploy"'
 ### push
 cd _site

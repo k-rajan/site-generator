@@ -35,10 +35,19 @@ echo -en 'travis_fold:end:script.build.site-init\\r'
 ###############################################################################
 # Generate static site
 echo '"Generating static site"' && echo -en 'travis_fold:start:script.build.site-gen\\r'
+echo -en 'travis_time:start:1234\\r'
+
+startTime=`date +%s%3N`
+
 bundle exec jekyll build
 ### bring back
 echo "Copying retained files"
 cp _tmp_backup/* _site/
+
+endTime=`date +%s%3N`
+durationTime=`expr $endTime - $startTime`
+
+echo -en "travis_time:end:1234:start=${startTime},finish=${endTime},duration=${durationTime}\\r"
 echo -en 'travis_fold:end:script.build.site-gen\\r'
 # end Generating static site
 ###############################################################################

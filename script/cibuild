@@ -27,7 +27,7 @@ echo "Retaining CNAME, README,md, LICENSE from repo"
 cp _site/README.md _tmp_backup/
 cp _site/LICENSE _tmp_backup/
 cp _site/CNAME _tmp_backup/
-echo -en 'travis_fold:end:script.build.site.init\\r'
+echo -en 'travis_fold:end:script.build.site-init\\r'
 # end clone
 ###############################################################################
 

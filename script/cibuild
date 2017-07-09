@@ -11,6 +11,7 @@ set -e
 
 ###############################################################################
 # clone remote repo to "_site"
+siteInit() {
 echo '"Initialize publishing repo"' && echo -en 'travis_fold:start:script.build.site-init\\r'
 echo ''
 echo '"site-init"'
@@ -31,11 +32,11 @@ cp _site/LICENSE _tmp_backup/
 cp _site/CNAME _tmp_backup/
 echo -en 'travis_fold:end:script.build.site-init\\r'
 # end clone
-###############################################################################
-
+}
 
 ###############################################################################
 # Generate static site
+siteGen() {
 echo '"Generating static site"' && echo -en 'travis_fold:start:script.build.site-gen\\r'
 echo '"Generating start time"' && echo -en 'travis_time:start:1234\\r'
 
@@ -57,10 +58,11 @@ echo -en "travis_time:end:1234:start=${startTime},finish=${endTime},duration=${d
 echo -en 'travis_fold:end:script.build.site-gen\\r'
 # end Generating static site
 ###############################################################################
-
+}
 
 ###############################################################################
 # tests
+siteTest() {
 echo '"Testing site"' && echo -en 'travis_fold:start:script.build.site-test\\r'
 echo ''
 echo '"site-test"'
@@ -70,10 +72,11 @@ bundle exec htmlproofer  ./_site  --allow_hash_href --assume_extension --disable
 echo -en 'travis_fold:end:script.build.site-test\\r'
 # end test
 ###############################################################################
-
+}
 
 ###############################################################################
 # publish
+siteDeploy() {
 echo '"Deploying site to github pages"' && echo -en 'travis_fold:start:script.build.site-deploy\\r'
 echo ''
 echo '"site-deploy"'
@@ -89,3 +92,11 @@ git push --force origin master
 echo -en 'travis_fold:end:script.build.site-deploy\\r'
 # end publish
 ###############################################################################
+}
+
+###############################################################################
+# sequence of steps are called here
+siteInit
+siteGen
+siteTest
+siteDeploy

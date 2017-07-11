@@ -88,6 +88,21 @@ Syntax highlighting via Pygments
   <figcaption><strong>Example:</strong> Two images.</figcaption>
 </figure>
 
+## Font icon
+
+### Font icons
+Some fonts such as <i class="fa fa-clock-o"></i> Time 
+or decoration of large <i class="fa fa-calendar fa-lg" aria-hidden="true"></i> calender and 
+2xlarge icon <i class="fa fa-th-large fa-2x" aria-hidden="true"></i> can be great to use them all.
+
+### Stacked Font icon
+<a href="https://github.com">
+  <span class="fa-stack fa-lg">
+    <i class="fa fa-square-o fa-stack-2x"></i>
+    <i class="fa fa-github-alt fa-stack-1x"></i>
+  </span>
+</a>
+
 ## Buttons
 
 Make any link standout more when applying the `.btn` class.

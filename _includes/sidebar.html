@@ -25,7 +25,12 @@
       {% endif %}
     {% endfor %}
 
-    <a class="sidebar-nav-item" href="{{ site.github.repo }}">GitHub project</a>
+    {% if site.github.repo %}
+      <a class="sidebar-nav-item" href="{{ site.author.github }}">
+        <i class="fa fa-github"></i>
+      </a>
+    {% endif %}
+
   </nav>
 
   <div class="sidebar-item">

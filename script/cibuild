@@ -7,6 +7,26 @@ if [ $TRAVIS_PULL_REQUEST == "true" ]; then
 fi
 set -e
 
+startTravisFold() {
+  taskName=$1
+  echo "Build Task ${taskName}" && echo -en 'travis_fold:start:script.build.${taskName}\\r'
+  echo "start time ${taskName}" && echo -en 'travis_time:start:${taskName}-time\\r'
+  echo ''
+  echo "${taskName}"
+
+}
+
+endTravisFold() {
+  taskName=$1
+  startTime=$2
+  endTime=`date +%s%N`
+  durationTime=`expr $endTime - $startTime`
+
+  echo -en "travis_time:end:${taskName}-time:start=${startTime},finish=${endTime},duration=${durationTime}\\r"
+  echo -en 'travis_fold:end:script.build.${taskName}\\r'
+
+}
+
 siteInit() {
   echo '"Initialize publishing repo"' && echo -en 'travis_fold:start:script.build.site-init\\r'
   echo ''
@@ -28,10 +48,7 @@ siteInit() {
 }
 
 siteGen() {
-  echo '"Generating static site"' && echo -en 'travis_fold:start:script.build.site-gen\\r'
-  echo '"Generating start time"' && echo -en 'travis_time:start:site-gen-time\\r'
-  echo ''
-  echo '"site-gen"'
+  startTravisFold 'site-gen'
   startTime=`date +%s%N`
 
   bundle exec jekyll build
@@ -40,11 +57,7 @@ siteGen() {
   echo "Copying retained files"
   cp _tmp_backup/* _site/
 
-  endTime=`date +%s%N`
-  durationTime=`expr $endTime - $startTime`
-
-  echo -en "travis_time:end:site-gen-time:start=${startTime},finish=${endTime},duration=${durationTime}\\r"
-  echo -en 'travis_fold:end:script.build.site-gen\\r'
+  endTravisFold 'site-gen' ${startTime}
 }
 
 siteTest() {

@@ -9,6 +9,7 @@ set -e
 
 startTravisFold() {
   taskName=$1
+  echo ''
   echo "Build Task ${taskName}" && echo -en "travis_fold:start:script.build.${taskName}\\r"
   echo '' && echo -en "travis_time:start:${taskName}-time\\r"
   echo ''
@@ -19,7 +20,6 @@ startTravisFold() {
 endTravisFold() {
   taskName=$1
   startTime=$2
-  echo "ending fold ${taskName} time  ${startTime}"
   echo ''
   endTime=`date +%s%N`
   durationTime=`expr $endTime - $startTime`
@@ -30,9 +30,8 @@ endTravisFold() {
 }
 
 siteInit() {
-  echo '"Initialize publishing repo"' && echo -en 'travis_fold:start:script.build.site-init\\r'
-  echo ''
-  echo '"site-init"'
+  startTravisFold "site-init"
+  startTime=`date +%s%N`
 
   rm -rf _site
   mkdir _site
@@ -46,7 +45,8 @@ siteInit() {
   cp _site/README.md _tmp_backup/
   cp _site/LICENSE _tmp_backup/
   cp _site/CNAME _tmp_backup/
-  echo -en 'travis_fold:end:script.build.site-init\\r'
+  
+  endTravisFold "site-init" "${startTime}"
 }
 
 siteGen() {
@@ -63,18 +63,18 @@ siteGen() {
 }
 
 siteTest() {
-  echo '"Testing site"' && echo -en 'travis_fold:start:script.build.site-test\\r'
-  echo ''
-  echo '"site-test"'
+  startTravisFold "site-test"
+  startTime=`date +%s%N`
+
   echo "Html proofer"
   bundle exec htmlproofer  ./_site  --allow_hash_href --assume_extension --disable-external
-  echo -en 'travis_fold:end:script.build.site-test\\r'
+  
+  endTravisFold "site-test" "${startTime}"
 }
 
 siteDeploy() {
-  echo '"Deploying site to github pages"' && echo -en 'travis_fold:start:script.build.site-deploy\\r'
-  echo ''
-  echo '"site-deploy"'
+  startTravisFold "site-deploy"
+  startTime=`date +%s%N`
 
   cd _site
   git config user.email ${GIT_EMAIL}
@@ -84,7 +84,7 @@ siteDeploy() {
   git show --name-only
   git push --force origin master
 
-  echo -en 'travis_fold:end:script.build.site-deploy\\r'
+  endTravisFold "site-deploy" "${startTime}"
 }
 
 ###############################################################################

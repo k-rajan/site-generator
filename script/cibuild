@@ -48,7 +48,7 @@ siteInit() {
 }
 
 siteGen() {
-  startTravisFold 'site-gen'
+  startTravisFold "site-gen"
   startTime=`date +%s%N`
 
   bundle exec jekyll build
@@ -57,7 +57,7 @@ siteGen() {
   echo "Copying retained files"
   cp _tmp_backup/* _site/
 
-  endTravisFold 'site-gen' ${startTime}
+  endTravisFold "site-gen" "${startTime}"
 }
 
 siteTest() {

@@ -47,6 +47,9 @@ feed:
   path: atom.xml
 
 assets:
+  compress:
+    css: true
+    js: true
   prefix: "/assets"
   digest: false
   sources:

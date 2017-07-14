@@ -29,8 +29,7 @@ siteInit() {
 
 siteGen() {
   echo '"Generating static site"' && echo -en 'travis_fold:start:script.build.site-gen\\r'
-  echo '"Generating start time"' && echo -en 'travis_time:start:1234\\r'
-
+  echo '"Generating start time"' && echo -en 'travis_time:start:site-gen-time\\r'
   echo ''
   echo '"site-gen"'
   startTime=`date +%s%N`
@@ -44,7 +43,7 @@ siteGen() {
   endTime=`date +%s%N`
   durationTime=`expr $endTime - $startTime`
 
-  echo -en "travis_time:end:1234:start=${startTime},finish=${endTime},duration=${durationTime}\\r"
+  echo -en "travis_time:end:site-gen-time:start=${startTime},finish=${endTime},duration=${durationTime}\\r"
   echo -en 'travis_fold:end:script.build.site-gen\\r'
 }
 

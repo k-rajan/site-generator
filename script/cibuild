@@ -9,8 +9,8 @@ set -e
 
 startTravisFold() {
   taskName=$1
-  echo "Build Task ${taskName}" && echo -en 'travis_fold:start:script.build.${taskName}\\r'
-  echo "start time ${taskName}" && echo -en 'travis_time:start:${taskName}-time\\r'
+  echo "Build Task ${taskName}" && echo -en "travis_fold:start:script.build.${taskName}\\r"
+  echo "start time ${taskName}" && echo -en "travis_time:start:${taskName}-time\\r"
   echo ''
   echo "${taskName}"
 
@@ -23,7 +23,7 @@ endTravisFold() {
   durationTime=`expr $endTime - $startTime`
 
   echo -en "travis_time:end:${taskName}-time:start=${startTime},finish=${endTime},duration=${durationTime}\\r"
-  echo -en 'travis_fold:end:script.build.${taskName}\\r'
+  echo -en "travis_fold:end:script.build.${taskName}\\r"
 
 }
 

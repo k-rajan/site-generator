@@ -25,10 +25,14 @@ github:
 
 plugins:
   - jekyll-assets
+  - jekyll-minifier
   - jekyll-paginate-v2
   - jekyll-feed
   - jekyll-sitemap
   - jekyll-seo-tag
+
+jekyll-minifier:
+  exclude: 'atom.xml'
 
 # Pagination Settings
 pagination:
@@ -38,8 +42,10 @@ pagination:
   limit: 0
   sort_field: 'date'
   sort_reverse: true
+
 feed:
   path: atom.xml
+
 assets:
   prefix: "/assets"
   digest: false

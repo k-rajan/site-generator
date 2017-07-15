@@ -20,6 +20,9 @@ print_hi('Tom')
 
 This site will be available at following places to start with. Main site will be [here][Main site], others will be redirects.
 
+Lots of love to jekyll, lanyon, travis-ci, github, cloudflare.
+
+
 [Main site]: https://kumarrajan.com
 [Personal site]:   http://rajan.world
 [Another site]: http://krajan.in

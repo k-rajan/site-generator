@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/k-rajan/site-generator.svg?branch=master)](https://travis-ci.org/k-rajan/site-generator)
+
 # site-generator
 Build tasks and tools for generating static site which will be published k-rajan.github.com
 

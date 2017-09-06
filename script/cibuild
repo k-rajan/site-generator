@@ -39,8 +39,8 @@ cp _tmp_backup/* _site/
 
 # push
 cd _site
-git config user.email "kkumar.rajan@gmail.com"
-git config user.name "Rajan"
+git config user.email ${GIT_EMAIL}
+git config user.name ${GIT_NAME}
 git add --all
 git commit -a -m "Travis CI | site-generator | #$TRAVIS_BUILD_NUMBER"
 git show --name-only

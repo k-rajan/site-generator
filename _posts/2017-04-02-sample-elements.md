@@ -7,7 +7,7 @@ date: "2017-04-02 14:06:35 +0530"
 tags: [sample]
 ---
 
-Below is just about everything you'll need to style in the theme. Check [the source code](http://rajan.world) to see the many embedded elements within paragraphs.
+Below is just about everything you'll need to style in the theme. Check [the source code](https://kumarrajan.com) to see the many embedded elements within paragraphs.
 
 # Heading 1: Lorem ipsum dolor sit amet, test link adipiscing elit. **This is strong**. Nullam dignissim convallis est. Quisque aliquam.
 

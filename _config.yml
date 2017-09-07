@@ -24,9 +24,11 @@ github:
 
 
 plugins:
+  - jekyll-assets
   - jekyll-paginate-v2
   - jekyll-feed
-  - jekyll-assets
+  - jekyll-sitemap
+  - jekyll-seo-tag
 
 # Pagination Settings
 pagination:

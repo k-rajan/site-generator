@@ -10,7 +10,7 @@ description: > # this means to ignore newlines until "baseurl:"
   I mostly writes about software development & technology, sometimes about world and rarely about my-self.  
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
-permalink: /:categories/:title
+permalink: /:categories/:title/
 twitter_username: k_rajan
 github_username:  k-rajan
 
